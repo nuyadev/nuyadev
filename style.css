@@ -1,0 +1,25 @@
+body {
+	min-height: ;
+}
+.jumbotron {
+	padding-top: 2rem;
+	background-color: #dce0ec;
+}
+#joblist {
+	background-color: #e9c10c;
+}
+#about {
+	background-color: #060116;
+	color: #ffffff;
+}
+#pelanggan {
+	background-color: #060116;
+	color: #ffffff;
+}
+#plg1 {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+#kaki {
+	background-color: #160115;
+}
