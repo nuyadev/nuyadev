@@ -3,23 +3,22 @@ body {
 }
 .jumbotron {
 	padding-top: 2rem;
-	background-color: #dce0ec;
+	background-color: #000000;
+	color:white
 }
 #joblist {
-	background-color: #e9c10c;
+	background-color: #e1aa10;
 }
-#about {
-	background-color: #060116;
-	color: #ffffff;
-}
+
 #pelanggan {
 	background-color: #060116;
 	color: #ffffff;
 }
 #plg1 {
-	margin-left: 3%;
-	margin-right: 3%;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 2%
 }
 #kaki {
-	background-color: #160115;
+	background-color: #000000;
 }
