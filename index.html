@@ -150,6 +150,12 @@
             </div>
           </div>
           <div class="col-md-7">
+		  
+			<div class="alert alert-success alert-dismissible fade show d-none peringatan" role="alert">
+			  <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
+			  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			
             <form name="nuyaform">
               <div class="mb-3">
                 <input type="text" class="form-control" aria-describedby="Disabled input example" placeholder="Nama Anda" name="nama">
@@ -164,10 +170,12 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Kritik atau saran anda" name="krisan"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-kirim"><i class="bi bi-send"></i> Kirim</button>
-		<button class="btn btn-primary btn-loading" type="button" disabled>
-		<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-		Loading...
-		</button>
+				
+				<button class="btn btn-primary btn-loading d-none" type="button" disabled>
+				<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+				Loading...
+				</button>
+				
             </form>
           </div>
         </div>
@@ -193,13 +201,34 @@
 	  <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyz8bv3T1nyJfJsBLTouFKxibEwurcum6yVnWnsAi5SNd1xqvSgFl_P3FnYUsKXVrbN/exec'
   const form = document.forms['nuyaform']
+  
+  const btnKirim = document.querySelector('.btn-kirim');
+  const btnLoading = document.querySelector('.btn-loading');
+  const peringatan = document.querySelector('.peringatan');
 
   form.addEventListener('submit', e => {
 	    e.preventDefault()
+		//ketika tombol kirim diklik
+		//tampilkan tombol loading, hilangkan tombol kirim
+		btnLoading.classList.toggle('d-none');
+		btnKirim.classList.toggle('d-none');
+		
 	    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-	      .then(response => console.log('Success!', response))
+	      .then(response => {
+			//tampilkan tombol kirim, hilangkan tombol loading
+			btnLoading.classList.toggle('d-none');
+			btnKirim.classList.toggle('d-none');
+			
+			//tampilkan peringatan
+			peringatan.classList.toggle('d-none');
+			
+			//reset form
+			form.reset();
+			
+		  console.log('Success!', response)
+		  })
 	      .catch(error => console.error('Error!', error.message))
-	  })
+	  });
 	</script>
 	  
 	  
