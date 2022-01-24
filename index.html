@@ -150,18 +150,18 @@
             </div>
           </div>
           <div class="col-md-7">
-            <form>
+            <form name="nuyaform">
               <div class="mb-3">
-                <input type="text" class="form-control" aria-describedby="Disabled input example" placeholder="Nama Anda">
+                <input type="text" class="form-control" aria-describedby="Disabled input example" placeholder="Nama Anda" name="nama">
               </div>
 		    <div class="mb-3">
-                <input type="text" class="form-control" aria-describedby="Disabled input example" placeholder="Nomor WhatsApp">
+                <input type="text" class="form-control" aria-describedby="Disabled input example" placeholder="Nomor WhatsApp" name="whatsapp">
               </div>
               <div class="mb-3">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-label="emailHelp" placeholder="Alamat Email Anda">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-label="emailHelp" placeholder="Alamat Email Anda" name="email">
               </div>
               <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Kritik atau saran anda"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Kritik atau saran anda"></textarea name="krisan">
               </div>
               <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Kirim</button>
             </form>
@@ -186,5 +186,18 @@
 	<script src="js/jquery.nav.js"></script>
     <script src="js/main.js"></script>
     
+	  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyz8bv3T1nyJfJsBLTouFKxibEwurcum6yVnWnsAi5SNd1xqvSgFl_P3FnYUsKXVrbN/exec'
+  const form = document.forms['nuyaform']
+
+  form.addEventListener('submit', e => {
+	    e.preventDefault()
+	    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+	      .then(response => console.log('Success!', response))
+	      .catch(error => console.error('Error!', error.message))
+	  })
+	</script>
+	  
+	  
   </body>
   </html>
